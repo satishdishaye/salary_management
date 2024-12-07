@@ -3,6 +3,8 @@ namespace App\Console\Commands;
 
 use App\Models\Salary;
 use Illuminate\Console\Command;
+use App\Jobs\SalaryCalculate;
+
 
 class CalculateSalaries extends Command
 { 
@@ -12,7 +14,7 @@ class CalculateSalaries extends Command
 
     public function handle()
     {
-        app('App\Http\Controllers\SalaryController')->calculateSalaries();
+        SalaryCalculate::dispatch();
         $this->info('Salaries have been successfully calculated!');
     }
 }
