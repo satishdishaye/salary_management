@@ -12,6 +12,7 @@ class Salary extends Model
         'employee_id', 'month', 'year','total_working_days', 'total_leave_taken', 'overtime', 'total_salary_made', 'is_salary_calculated'
     ];
     public function employee()
+    
     {
         return $this->belongsTo(Employee::class);
     }
