@@ -80,26 +80,48 @@
                             <option value="{{ $employee->id }}">{{ $employee->name }}</option>
                         @endforeach
                     </select>
+
+                    @error('employee_id')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
+
                 </div>
                 <div class="mb-3">
                     <label for="month" class="form-label">Month</label>
-                    <input type="number" name="month" class="form-control" required min="1" max="12">
+                    <input type="number" name="month" class="form-control" value="{{old('month')}}" required min="1" max="12">
+
+                    @error('month')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
+
                 </div>
                 <div class="mb-3">
                     <label for="year" class="form-label">Year</label>
-                    <input type="number" name="year" class="form-control" required min="1900" max="2100">
+                    <input type="number" name="year"  value="{{old('year')}}" class="form-control" required min="1900" max="2100">
+                    @error('year')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
                 </div>
                 <div class="mb-3">
                     <label for="total_working_days" class="form-label">Total Working Days</label>
-                    <input type="number" name="total_working_days" class="form-control" required min="1">
+                    <input type="number" name="total_working_days"  value="{{old('total_working_days')}}" class="form-control" required min="1">
+                    @error('total_working_days')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
                 </div>
                 <div class="mb-3">
                     <label for="total_leave_taken" class="form-label">Total Leave Taken</label>
-                    <input type="number" name="total_leave_taken" class="form-control" required min="0">
+                    <input type="number" name="total_leave_taken"  value="{{old('total_leave_taken')}}" class="form-control" required min="0">
+                    @error('total_leave_taken')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
                 </div>
                 <div class="mb-3">
                     <label for="overtime" class="form-label">Overtime (hours)</label>
-                    <input type="number" name="overtime" class="form-control" required min="0">
+                    <input type="number" name="overtime"  value="{{old('overtime')}}" class="form-control" required min="0">
+                    @error('overtime')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Save Salary</button>
             </form>

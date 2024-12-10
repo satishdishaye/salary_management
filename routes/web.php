@@ -21,11 +21,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('admin-login',[AdminController::class ,'Adminlogin'])->name('admin-login');
+Route::get('admin-login',[AdminController::class ,'adminlogin'])->name('admin-login');
+
+
 Route::post('admin-login-post',[AdminController::class ,'adminLoginPost'])->name('admin-login-post');
 Route::get('dashboard',[AdminController::class ,'dashboard'])->name('dashboard');
-
-
-
 Route::resource('employees', EmployeeController::class);
 Route::resource('salaries', SalaryController:: class);

@@ -78,23 +78,45 @@
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter full name" required>
+                    <input type="text" name="name" class="form-control" id="name" value="{{old('name')}}" placeholder="Enter full name" required>
+
+                    @error('name')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
+
+
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter email address" required>
+                    <input type="email" name="email" class="form-control"  value="{{old('email')}}" id="email" placeholder="Enter email address" required>
+                    @error('email')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
+
                 </div>
                 <div class="mb-3">
                     <label for="mobile" class="form-label">Mobile</label>
-                    <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Enter mobile number" required>
+                    <input type="text" name="mobile" class="form-control" value="{{old('mobile')}}" id="mobile" placeholder="Enter mobile number" required>
+                    @error('mobile')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
+
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
-                    <textarea name="address" class="form-control" id="address" rows="3" placeholder="Enter address" required></textarea>
+                    <textarea name="address" class="form-control" value="{{old('address')}}" id="address" rows="3" placeholder="Enter address" required></textarea>
+                    @error('address')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
+
                 </div>
                 <div class="mb-3">
                     <label for="base_salary" class="form-label">Base Salary</label>
-                    <input type="number" name="base_salary" class="form-control" id="base_salary" placeholder="Enter base salary" required>
+                    <input type="number" name="base_salary" value="{{old('base_salary')}}" class="form-control" id="base_salary" placeholder="Enter base salary" required>
+                    @error('base_salary')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
+
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>

@@ -13,16 +13,41 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Employee;
+use App\Models\Salary;
 
+use Carbon\Carbon;
 
 
 
 class AdminController extends Controller
 {
-    public function Adminlogin(){
-        return view('admin-login');
+
+    public function dashboard(){
+
+        $total_employee = Employee::where('status', 1)->count();
+
+        $current_month = Carbon::now()->month;
+        $current_year = Carbon::now()->year;
+
+        $this_month_attendance = Salary::where('month', $current_month)
+                                        ->where('year', $current_year)
+                                        ->count();
+
+        $last_month = Carbon::now()->subMonth()->month; 
+        $last_month_year = Carbon::now()->subMonth()->year; 
+
+        $last_month_attendance = Salary::where('month', $last_month)
+                                        ->where('year', $last_month_year)
+                                        ->count();
+                                        
+        return view('dashboard',compact('total_employee','this_month_attendance','last_month_attendance'));
     }
 
+    
+    public function adminlogin(){
+        return view('admin-login');
+    }
 
 
     public function adminLoginPost(Request $request)
@@ -57,13 +82,8 @@ class AdminController extends Controller
        
     }
 
-    public function dashboard()
-    {
-       
-        
-        return view('dashboard',['Allpost'=>1]);
-    }
-    
+   
+
     public function adminLogout(Request $request)
     {
         Auth::guard('admins')->logout();

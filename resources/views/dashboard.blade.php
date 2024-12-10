@@ -107,9 +107,9 @@
         <!-- Main Content -->
         <div class="main-content">
             <div class="dashboard-info">
-                <h2>Total Employees: 150</h2>
-                <p>This Month's Attendance: 90%</p>
-                <p>Last Month's Attendance: 85%</p>
+                <h2>Total Employees: {{$total_employee}}</h2>
+                <p>This Month's Attendance: {{$this_month_attendance}}%</p>
+                <p>Last Month's Attendance:  {{$last_month_attendance}}%</p>
             </div>
         </div>
     </div>

@@ -80,22 +80,40 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" name="name" class="form-control" id="name" value="{{ $employee->name }}" required>
+
+                    @error('name')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
+
+
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" name="email" class="form-control" id="email" value="{{ $employee->email }}" required>
+                    @error('email')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
                 </div>
                 <div class="mb-3">
                     <label for="mobile" class="form-label">Mobile</label>
                     <input type="text" name="mobile" class="form-control" id="mobile" value="{{ $employee->mobile }}" required>
+                    @error('mobile')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
                     <textarea name="address" class="form-control" id="address" required>{{ $employee->address }}</textarea>
+                    @error('address')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
                 </div>
                 <div class="mb-3">
                     <label for="base_salary" class="form-label">Base Salary</label>
                     <input type="number" name="base_salary" class="form-control" id="base_salary" value="{{ $employee->base_salary }}" required>
+                    @error('base_salary')
+                    <div class="alert alert-danger" >{{ $message }}</div>
+                  @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>

@@ -102,7 +102,7 @@
 
             <div class="form-group">
                 <label for="login-email">Email:</label>
-                <input type="email" id="login-email" name="email" placeholder="Enter your email" >
+                <input type="email" id="login-email" value="{{('email')}}" name="email" placeholder="Enter your email" >
             </div>
             @if ($errors->has('email'))
             <div class="error">{{ $errors->first('email') }}</div>
@@ -110,7 +110,7 @@
 
             <div class="form-group">
                 <label for="login-password">Password:</label>
-                <input type="password" id="login-password" name="password" placeholder="Enter your password" >
+                <input type="password" id="login-password" name="password" value="{{('password')}}" placeholder="Enter your password" >
             </div>
 
             @if ($errors->has('password'))
